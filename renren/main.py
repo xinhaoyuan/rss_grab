@@ -32,6 +32,11 @@ def main(args):
       r.loginByCookie('cookie.dat')
       feed = r.get_feed()
       update_feed(feed)
+    elif args[1] == 'show_feed':
+      r = renren.RenRen()
+      r.loginByCookie('cookie.dat')
+      feed = r.get_feed()
+      print(feed)
     else:
       print('Unknown command')
       exit(-1)
