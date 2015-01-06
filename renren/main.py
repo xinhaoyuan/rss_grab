@@ -16,6 +16,7 @@ def update_feed(feed):
 
   for i in feed:
     if i['id'] not in s:
+      print('inserting item', i['id'])
       s[i['id']] = i
   
   s.sync()

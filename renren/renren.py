@@ -88,9 +88,8 @@ class RenRen:
     def get_feed(self, page = 0):
         r = self.get('http://www.renren.com/feedretrieve3.do?begin=' + str(page) + '&limit=50&p=0')
         r.raise_for_status()
-        p = feed.FeedParserV3()
-        p.feed(r.text)
-        return p.dump()
+        f = feed.parse_feed_v3(r.text)
+        return f
         
     def getNotifications(self):
         url = 'http://notify.renren.com/rmessage/get?getbybigtype=1&bigtype=1&limit=999&begin=0&view=16'
